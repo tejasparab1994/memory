@@ -29,4 +29,3 @@ function init() {
 
 // Use jQuery to delay until page loaded.
 $(init);
-

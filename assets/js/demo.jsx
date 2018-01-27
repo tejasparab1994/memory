@@ -109,10 +109,17 @@ class Game extends React.Component{
     }
   }
 
-  checkScore(count) {
-    //update score if card is not flipped
-    this.setState({ count: count + 1 });
+checkScore(count) {
+  //update score if card is not flipped
+  if (!this.state.locked) {
+    console.log(this.state.locked);
+    this.setState({
+      count: count + 1
+    });
+  } else {
+    return;
   }
+}
 
   reset() {
     var shuffled = beginGame();

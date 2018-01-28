@@ -38,9 +38,11 @@ class Square extends React.Component {
   }
 }
 
+// functional component that gives the games initial values
 function beginGame() {
   "use strict";
   return [
+    // the matched and flipped components of individual squares
     { value: 'G', matched: false, flipped: false },
     { value: 'C', matched: false, flipped: false },
     { value: 'D', matched: false, flipped: false },
@@ -72,10 +74,10 @@ class Game extends React.Component{
     // begin game with these values
     this.state = {
       squares: beginGame(),
-      prevSquare: null,
-      locked: false,
-      matches: 0,
-      count: 0,
+      prevSquare: null, // previous square which was opened before the current
+      locked: false, // square locked state, if flipped
+      matches: 0,  // number of matches made currently, used for
+      count: 0, // used to keep count of the clicks to maintain score
     };
   }
 
@@ -84,14 +86,14 @@ class Game extends React.Component{
       return;
     }
 
-    var squares = this.state.squares;
-    squares[id].flipped = true;
+    var squares = this.state.squares; // get the square array
+    squares[id].flipped = true; // the id of square that is flipped set to true
     this.setState({ squares, locked: true }); //lock the square
     if (this.state.prevSquare) { //if there is a square previously selected before this
-      if (value === this.state.prevSquare.value) { //if both the values match
-        var matches = this.state.matches;
-        squares[id].matched = true;
-        squares[this.state.prevSquare.id].matched = true;
+      if (value === this.state.prevSquare.value) { //if both the values match then
+        var matches = this.state.matches; // getting the matches number from state
+        squares[id].matched = true; // getting the matched square id and setting it to true
+        squares[this.state.prevSquare.id].matched = true; // setting previous square also as true
         this.setState({ squares, prevSquare: null, locked: false, matches: matches + 1 });
       } else { //if values do not match, then set timeout and then change locked status to false
         setTimeout(() => {
@@ -112,7 +114,7 @@ class Game extends React.Component{
 checkScore(count) {
   //update score if card is not flipped
   if (!this.state.locked) {
-    console.log(this.state.locked);
+    //console.log(this.state.locked);
     this.setState({
       count: count + 1
     });
@@ -121,16 +123,20 @@ checkScore(count) {
   }
 }
 
+
+
   reset() {
     var shuffled = beginGame();
 
     this.setState({
       // randomize the array values on Reset
-      squares: shuffled.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]),
-      prevSquare: null,
-      locked: false,
-      matches: 0,
-      count: 0,
+      // Attribution: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+      // got the idea for shuffle from here
+      squares: shuffled.map((a) => [Math.random(), a]).sort((a,b) => a[0] - b[0]).map((a) => a[1]),
+      prevSquare: null, // reseting value to null since no previous square
+      locked: false, // reseting to default value
+      matches: 0, // 0 matches on reset
+      count: 0, // score back to zero
     });
   }
 
@@ -148,6 +154,7 @@ checkScore(count) {
             checkMatch={this.checkMatch}
             count={this.state.count}
             checkScore={this.checkScore}
+
           />
       );
     });

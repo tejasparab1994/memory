@@ -5,10 +5,6 @@
 .side { padding: 4ex; text-align: center; }
 h1 { text-align: center; }
 
-.Board-row {
-  display: table;
-}
-
 body{
   background-color: #ffffff;
 }
@@ -30,7 +26,12 @@ body{
   margin: 16px;
   padding-top: 55px;
   text-align: center;
+  transition: box-shadow .3s;
+}
 
+
+.Square:hover {
+  box-shadow: 5px 10px #888888;
 }
 
 .Flipped {
@@ -38,8 +39,9 @@ body{
 }
 
 .Matched {
-  background-color: green;
+  background-color: #32CD32;
 }
+
 
 .btn {
   padding-bottom: 10px;

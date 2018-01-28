@@ -85,10 +85,12 @@ class Game extends React.Component{
     if (this.state.locked) { // to avoid clicking a third square when two already selected
       return;
     }
-
+    
     var squares = this.state.squares; // get the square array
     squares[id].flipped = true; // the id of square that is flipped set to true
     this.setState({ squares, locked: true }); //lock the square
+    // Attribution: https://reactjs.org/tutorial/tutorial.html, declaring the winner part.  
+    // Although this code is different, got the idea from here
     if (this.state.prevSquare) { //if there is a square previously selected before this
       if (value === this.state.prevSquare.value) { //if both the values match then
         var matches = this.state.matches; // getting the matches number from state

@@ -1,8 +1,15 @@
-<h1>Memory Game</h1>
-
-<div id="game">
-  Loading...
+<div class="row">
+  <div class="col">
+    <h2 id="index-page"> Login to Game</h2>
+    <div class="col-lg-8">
+      <div class="form-group">
+        <%= form_for @conn, "/game", [as: :param], fn f -> %>
+        <%= label(f, :game, "Your Game Name") %>
+        <%= text_input f, :game, class: "form-control" %>
+        <br>
+        <%= submit "Join The Game", class: "btn btn-success"  %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-

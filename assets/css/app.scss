@@ -5,6 +5,10 @@
 .side { padding: 4ex; text-align: center; }
 h1 { text-align: center; }
 
+h2 { text-align: center;}
+
+
+
 body{
   background-color: #ffffff;
 }
@@ -12,6 +16,7 @@ body{
 .area-size {
   width: 864px;
   height: 710px;
+  
 }
 
 .Square {
@@ -24,7 +29,6 @@ body{
   width: 150px;
   height: 150px;
   margin: 16px;
-  padding-top: 55px;
   text-align: center;
   transition: box-shadow .3s;
 }
@@ -38,16 +42,8 @@ body{
   background-color: #F9EE05;
 }
 
-.Matched {
-  background-color: #32CD32;
-}
-
 
 .btn {
   padding-bottom: 10px;
   margin-bottom: 10px;
-}
-
-.score {
-
 }

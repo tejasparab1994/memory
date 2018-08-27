@@ -65,5 +65,5 @@ config :logger, level: :info
 #import_config "prod.secret.exs"
 
 config :memory, MemoryWeb.Endpoint,
-    secret_key_base: "THIS+IS+NOT+SECURE+DONT+USE+SESSION+COOKIES+WITHOUT+FIXING"
+    secret_key_base: "irVz1ZjJwr1dJXqyorom9sGE1VpXeWMv9K5dE5vxHhFxBujEPYgprP7tWdQuPTP9"
 

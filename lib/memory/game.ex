@@ -148,12 +148,11 @@ defmodule Memory.Game do
     value = game.prevSquare.value
     # unable to get the third color(green) for matched squares from HW03
     # so change the value of matched squares
+    local = nil
     if Enum.at(game.squares, prevSquareid) == value do
       val = "$"
 
-      local =
-        List.replace_at(currentSquare, game.prevSquare.id, val)
-        |> List.replace_at(prevSquareid, val)
+      local = List.replace_at(currentSquare, game.prevSquare.id, val) |> List.replace_at(prevSquareid, val)
 
       # else if the two squares don't match, set their values
       # back to nil
